@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: qe190107-tasktrack-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ENABLE_SWAGGER
+        value: true
+      - key: CORS_ORIGINS
+        sync: false
